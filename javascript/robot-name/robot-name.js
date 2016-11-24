@@ -1,4 +1,4 @@
-const takenNames = [];
+const takenNames = {};
 
 const viableLetters = [
   'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
@@ -28,10 +28,10 @@ class Robot {
 
   generateRandomName(){
     const name = `${twoRandomLetters()}${threeRandomNumbers()}`;
-    if (takenNames.includes(name)) {
+    if (takenNames[name]) {
       this.generateRandomName();
     } else {
-      takenNames.push(name);
+      takenNames[name] = name;
       return name;
     }
   }
