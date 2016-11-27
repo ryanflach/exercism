@@ -15,6 +15,20 @@ class RunLengthEncoding
     end
     output
   end
+
+  def self.decode(input)
+    output, current = '', ''
+    input.chars.each do |char|
+      if ('0'..'9').to_a.include?(char)
+        current += char
+      else
+        num_chars = current.to_i
+        num_chars < 2 ? output += char : num_chars.times { output += char }
+        current = ''
+      end
+    end
+    output
+  end
 end
 
 module BookKeeping
