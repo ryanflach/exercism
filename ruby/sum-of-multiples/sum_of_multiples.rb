@@ -1,6 +1,6 @@
 class SumOfMultiples
   def initialize(*numbers)
-    @divisible_by = numbers.to_a
+    @divisible_by = numbers
   end
 
   def to(ending_number)
