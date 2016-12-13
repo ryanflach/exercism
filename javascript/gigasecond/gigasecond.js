@@ -1,11 +1,15 @@
-var Gigasecond = function(startingDate){
-  this.startingDate = startingDate;
-};
+const GIGASECOND = 1000000000 * 1000;
 
-Gigasecond.prototype.date = function() {
-  var startingTime = this.startingDate.getTime();
-  var endingTime = startingTime + 1000000000 * 1000;
-  return new Date(endingTime);
-};
+class Gigasecond {
+  constructor(startingDate) {
+    this.startingDate = startingDate;
+  }
+
+  date() {
+    const startingTime = this.startingDate.getTime();
+    const endingTime = startingTime + GIGASECOND;
+    return new Date(endingTime);
+  }
+}
 
 module.exports = Gigasecond;
