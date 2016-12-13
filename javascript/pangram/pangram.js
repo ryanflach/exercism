@@ -1,13 +1,16 @@
-var Pangram = function(input) {
-  this.originalSentence = input;
-};
+const NUM_UNIQUE_CHARS = 26;
 
-Pangram.prototype.isPangram = function() {
-  const cleanString = this.originalSentence
-    .toLowerCase()
-    .replace(/[^a-z]/g, '');
+class Pangram {
+  constructor(input) {
+    this.originalSentence = input;
+  }
 
-  return new Set(cleanString).size === 26;
-};
+  isPangram() {
+    const cleanString = this.originalSentence.toLowerCase()
+                                             .replace(/[^a-z]/g, '');
+
+    return new Set(cleanString).size === NUM_UNIQUE_CHARS;
+  }
+}
 
 module.exports = Pangram;
