@@ -1,12 +1,11 @@
-var Words = function(){}
-
-Words.prototype.count = function(words) {
-  var counts = Object.create(null);
-  var cleanString = words.replace(/\s+/, ' ').trim().toLowerCase();
-  cleanString.split(' ').forEach(function(word){
-    counts[word] = counts[word] + 1 || 1
-  });
-  return counts;
-};
+class Words {
+  count(words) {
+    const cleanString = words.replace(/\s+/, ' ').trim().toLowerCase();
+    return cleanString.split(' ').reduce((counts, word) => {
+      counts[word] = counts[word] + 1 || 1;
+      return counts;
+    }, Object.create(null));
+  }
+}
 
 module.exports = Words;
