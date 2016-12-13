@@ -1,17 +1,17 @@
-var Hamming = function() {};
+class Hamming {
+  compute(firstStrand, secondStrand) {
+    let count = 0;
 
-Hamming.prototype.compute = function(inputOne, inputTwo) {
-  var count = 0;
+    if (firstStrand.length !== secondStrand.length) {
+      throw new Error('DNA strands must be of equal length.');
+    }
 
-  if (inputOne.length !== inputTwo.length) {
-    throw new Error('DNA strands must be of equal length.');
+    for (let i = 0; i < firstStrand.length ; i++) {
+      if (firstStrand.charAt(i) !== secondStrand.charAt(i)) { count += 1; }
+    }
+
+    return count;
   }
-
-  for (var i = 0; i < inputOne.length ; i++) {
-    if (inputOne.charAt(i) !== inputTwo.charAt(i)) { count += 1; }
-  }
-
-  return count;
-};
+}
 
 module.exports = Hamming;
